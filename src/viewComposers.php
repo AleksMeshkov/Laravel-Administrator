@@ -62,6 +62,7 @@ View::composer(array('administrator::partials.header'), function($view)
 {
 	$view->menu = App::make('admin_menu')->getMenu();
 	$view->settingsPrefix = App::make('admin_config_factory')->getSettingsPrefix();
+	$view->pagePrefix = App::make('admin_config_factory')->getPagePrefix();
 	$view->configType = App::bound('itemconfig') ? App::make('itemconfig')->getType() : false;
 });
 
@@ -116,5 +117,27 @@ View::composer(array('administrator::layouts.default'), function($view)
 		'page' => asset('packages/frozennode/administrator/js/page.js'),
 		'admin' => asset('packages/frozennode/administrator/js/admin.js'),
 		'settings' => asset('packages/frozennode/administrator/js/settings.js'),
+	);
+});
+
+
+//custom pages layout view
+View::composer(array('administrator::layouts.custom_page'), function($view)
+{
+	//css assets
+	$view->css = array(
+		'bootstrap' => asset('css/bootstrap.css'),
+		'package_main' => asset('packages/frozennode/administrator/css/main.css'),
+		'main' => asset('css/main.css'),
+	);
+
+	//js assets
+	$view->js = array(
+		'jquery' => asset('js/vendor/jquery-1.10.1.min.js'),
+		'bootstrap' => asset('js/vendor/bootstrap.min.js'),
+		'lodash' => asset('js/vendor/lodash.underscore.min.js'),
+		'backbone' => asset('js/vendor/backbone.min.js'),
+		'page' => asset('packages/frozennode/administrator/js/page.js'),
+		'customscroll' => asset('packages/frozennode/administrator/js/jquery/customscroll/jquery.customscroll.js'),
 	);
 });
