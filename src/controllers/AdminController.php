@@ -33,7 +33,6 @@ class AdminController extends Controller
 		if ( ! is_null($this->layout))
 		{
 			$this->layout = View::make($this->layout);
-			$this->layout->page = false;
 		}
 	}
 
@@ -42,11 +41,33 @@ class AdminController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function index($modelName)
+	public function index()
 	{
 		//set the layout content and title
 		$this->layout->content = View::make("administrator::index");
 	}
+
+	/**
+	 * The pages view
+	 *
+	 * @return Response
+	 */
+	public function pages($page=null)
+	{
+		//override default layout with custom
+		$this->layout = View::make("administrator::layouts.custom_page");
+		//set the layout content and title
+		$this->layout->content = View::make($page);
+		//set css and js that we need
+		$this->layout->css = array(
+			'css1', 'css2'
+		);
+
+		$this->layout->js = array(
+			'js1', 'js2'
+		);
+	}
+
 
 	/**
 	 * Gets the item edit page / information
@@ -446,23 +467,9 @@ class AdminController extends Controller
 
 		//get the inputted rows and the model rows
 		$rows = (int) Input::get('rows', 20);
-		$dataTable->setRowsPerPage(App::make('session.store'), 0, $rows);
+		$dataTable->setRowsPerPage(App::make('session'), 0, $rows);
 
 		return Response::JSON(array('success' => true));
-	}
-
-	/**
-	 * The pages view
-	 *
-	 * @return Response
-	 */
-	public function page($page)
-	{
-		//set the page
-		$this->layout->page = $page;
-
-		//set the layout content and title
-		$this->layout->content = View::make($page);
 	}
 
 	/**

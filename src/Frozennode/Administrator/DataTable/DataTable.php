@@ -362,7 +362,7 @@ class DataTable {
 	 * @param int						$globalPerPage
 	 * @param int						$override	//if provided, this will set the session's rows per page value
 	 */
-	public function setRowsPerPage(\Illuminate\Session\Store $session, $globalPerPage, $override = null)
+	public function setRowsPerPage(\Illuminate\Session\SessionManager $session, $globalPerPage, $override = null)
 	{
 		if ($override)
 		{

@@ -20,7 +20,7 @@ Route::group(array('prefix' => Config::get('administrator::administrator.uri'), 
 	//Custom Pages
 	Route::get('page/{page}', array(
 		'as' => 'admin_page',
-		'uses' => 'Frozennode\Administrator\AdminController@page'
+		'uses' => 'Frozennode\Administrator\AdminController@pages'
 	));
 
 	//The route group for all other requests needs to validate admin, model, and add assets
