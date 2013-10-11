@@ -1,3 +1,16 @@
+h1, h2, h3 {
+    line-height: 18px !important;
+}
+
+ul li.menu ul {
+    margin:0 !important;
+    padding: 0 !important;
+}
+
+#lang_menu li.menu, #menu li.item, li.menu {
+    line-height: 17px !important;
+}
+
 .verdana {
   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
