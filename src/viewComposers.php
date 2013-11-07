@@ -126,14 +126,16 @@ View::composer(array('administrator::layouts.custom_page'), function($view)
 {
 	//css assets
 	$view->css = array(
-		'bootstrap' => asset('css/bootstrap.css'),
+		'bootstrap' => asset('css/bootstrap2/css/bootstrap.css'),
 		'package_main' => asset('packages/frozennode/administrator/css/main.css'),
+        'jquery-ui' => asset('/js/vendor/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.min.css'),
 	);
 
 	//js assets
 	$view->js = array(
 		'jquery' => asset('js/vendor/jquery-1.10.1.min.js'),
-		'bootstrap' => asset('js/vendor/bootstrap.min.js'),
+        'jquery-ui' => asset('/js/vendor/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js'),
+		'bootstrap' => asset('js/vendor/bootstrap2/bootstrap.min.js'),
 		'lodash' => asset('js/vendor/lodash.underscore.min.js'),
 		'backbone' => asset('js/vendor/backbone.min.js'),
 		'page' => asset('packages/frozennode/administrator/js/page.js'),
