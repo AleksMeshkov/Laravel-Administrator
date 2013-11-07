@@ -128,7 +128,6 @@ View::composer(array('administrator::layouts.custom_page'), function($view)
 	$view->css = array(
 		'bootstrap' => asset('css/bootstrap.css'),
 		'package_main' => asset('packages/frozennode/administrator/css/main.css'),
-		'main' => asset('css/main.css'),
 	);
 
 	//js assets
